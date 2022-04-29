@@ -33,7 +33,7 @@ func maxProfit(prices []int) int {
 	// loop through days and compare values in present and future day
 	for future_day < len(prices) {
 		// As long as future day is not greater than the number of days
-		// compare values in present_day and future
+		// compare values in present_day and future_day
 		if prices[present_day] < prices[future_day] {
 			// check if the profit is greater than maxPro
 			profit := prices[future_day] - prices[present_day]
