@@ -20,7 +20,7 @@ func productExceptSelf(nums []int) []int {
 		results[i] = prefix
 		prefix *= nums[i]
 	}
-	// prefix : stores product of all items after them
+	// postfix : stores product of all items after them
 	postfix := 1
 	// Loop through items in nums and get the postfixes
 

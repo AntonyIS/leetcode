@@ -11,7 +11,7 @@ def productExceptSelf(nums: List[int]) -> List[int]:
         result[i] = prefix
         prefix *= nums[i]
 
-    # prefix : product of individual items after them
+    # postfix : product of individual items after them
     postfix = 1
     # Loop through items from right to left : postfixing
     for i in range(len(nums)-1,-1,-1):
