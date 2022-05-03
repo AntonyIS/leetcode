@@ -31,5 +31,5 @@ def findMin(nums : List[int]) -> int :
 
 if __name__ == "__main__":
     nums:List[int] = [2,1]
-    maxValue = findMin(nums)
-    print(maxValue)
+    minValue = findMin(nums)
+    print(minValue)
