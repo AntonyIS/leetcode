@@ -6,60 +6,38 @@ import (
 
 func main() {
 
-	nums := []int{-4, -3, -2}
+	nums := []int{-1, -2, -9, -6}
 	maxProduct := maxProduct(nums)
 
 	fmt.Println(maxProduct)
 }
 
 func maxProduct(nums []int) int {
-	// Define maxsub array to be the first item in the array
-	response := max(nums)
+	// Find the currentMax, currentMin, and response and assign them to item in index 0
+	currentMax, currentMin, response := nums[0], nums[0], nums[0]
+	// Loop through all the items in nums starting at index 1, index 0 already covered
+	for i := 1; i < len(nums); i++ {
+		// Define a temperary current max
+		tmpMax := currentMax
 
-	// Define the currentMax, currentMin
-	currentMax, currentMin := 1, 1
-
-	// Loop through item in the number slice
-	for _, num := range nums {
-		// Check if currentProduct is less than 0
-		if num == 0 {
-
-			currentMax, currentMin = 1, 1
+		// Get currentMax from the current item in the loop (nums[i]), (nums[i]*tmpMax) and currentMin * nums[i]
+		currentMax = max(nums[i], max(tmpMax*nums[i], currentMin*nums[i]))
+		currentMin = min(nums[i], min(tmpMax*nums[i], currentMin*nums[i]))
+		if currentMax > response {
+			response = currentMax
 		}
-
-		tempMax := num * currentMax
-		currentMax = max([]int{num * currentMax, num * currentMin, num})
-		currentMin = min([]int{tempMax, num * currentMin, num})
-		response = max([]int{response, currentMax})
-
 	}
-
 	return response
 }
-func max(nums []int) int {
-	var maxValue int = -1000000
-	if len(nums) == 1 {
-		maxValue = nums[0]
-		return maxValue
+func max(a, b int) int {
+	if a > b {
+		return a
 	}
-	for _, value := range nums {
-
-		if value > maxValue {
-			maxValue = value
-		}
-	}
-	return maxValue
+	return b
 }
-func min(nums []int) int {
-	var minValue int = 1000000
-	if len(nums) == 1 {
-		minValue = nums[0]
-		return minValue
+func min(a, b int) int {
+	if a < b {
+		return a
 	}
-	for _, value := range nums {
-		if value < minValue {
-			minValue = value
-		}
-	}
-	return minValue
+	return b
 }

@@ -10,19 +10,15 @@ def maxProduct(nums:List[int]) -> int :
     # Loop through values in nums and key track of the max, min
     for num in nums :
         # Ignore zero values in nums
-        if num == 0 :
-            currentMax, currentMin = 1,1
-            continue
-
-        tempMax = num * currentMax
+        tempMax = currentMax
         # Keep track of both currentMin and currentMax in cases where nums has negative values
-        currentMax = max(num * currentMax, num * currentMin, num)
-        currentMin = min(tempMax, num * currentMin, num)
+        currentMax = max(num , max(num* tempMax, num * currentMin))
+        currentMin = min(num, min(num* tempMax,num * currentMin))
         maxProd = max(currentMax, maxProd)
         
     return maxProd
 
 if __name__ == "__main__":
-    nums:List[int] = [-4, -3, -2]
+    nums:List[int] = [-1, -2, -9, -6]
     maxValue = maxProduct(nums)
     print(maxValue)
