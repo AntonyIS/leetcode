@@ -42,7 +42,7 @@ func threeSum(nums []int, target int) [][]int {
 				// Move the left pointer forward
 				left += 1
 				// Ensure that the nums[left] does not repeat itself
-				for nums[left] == nums[i-1] && left < right {
+				for nums[left] == nums[left-1] && left < right {
 					left += 1
 				}
 			}
