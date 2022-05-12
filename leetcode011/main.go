@@ -6,15 +6,12 @@ import (
 
 func main() {
 	nums := []int{1, 8, 6, 2, 5, 4, 8, 3, 7}
-	res := maxArea(nums)
+	res := maxArea_2(nums)
 	fmt.Println(res)
 }
 
-func maxArea(nums []int) int {
-	// Define the maxarea
-	maxArea := nums[0]
-
-	left, right := 0, len(nums)-1
+func maxArea_1(nums []int) int {
+	maxArea, left, right := 0, 0, len(nums)-1
 
 	for left < right {
 		length := right - left
@@ -31,6 +28,28 @@ func maxArea(nums []int) int {
 
 	return maxArea
 
+}
+
+func maxArea_2(nums []int) int {
+	maxArea, left, right := 0, 0, len(nums)-1
+
+	for left < right {
+		width := right - left
+		height := 0
+
+		if nums[left] < nums[right] {
+			height = nums[left]
+			left++
+		} else {
+			height = nums[right]
+			right--
+		}
+
+		tempArea := width * height
+		maxArea = max(maxArea, tempArea)
+	}
+
+	return maxArea
 }
 
 func min(a, b int) int {

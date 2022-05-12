@@ -1,8 +1,8 @@
 from typing import List
 
 
-
-def maxArea(nums : List[int])-> int :
+# Solution 1
+def maxArea_1(nums : List[int])-> int :
     # Define maxArea as the 0
     maxArea = 0
 
@@ -22,8 +22,27 @@ def maxArea(nums : List[int])-> int :
             right -= 1
 
     return maxArea
+# Solution 2
+def maxArea_2(nums: List[int]) -> int :
+    maxArea , left, right = 0, 0, len(nums) -1
+
+    while left < right :
+        width = right - left 
+        height = 0
+
+        if nums[left] < nums[right] :
+            height = nums[left]
+            left += 1
+        else:
+            height = nums[right]
+            right -= 1
+
+        tempArea = width * height
+        maxArea = max(maxArea, tempArea)
+
+    return maxArea
 
 if __name__ == "__main__":
     nums:List[int] = [1,8,6,2,5,4,8,3,7]
-    max_area = maxArea(nums)
+    max_area = maxArea_2(nums)
     print(max_area)
