@@ -16,25 +16,15 @@ Output: true
 
 func main() {
 	nums := []int{1, 2, 3, 1}
-	fmt.Println(containsDuplicates(nums))
+	fmt.Println(containsDuplicate(nums))
 }
-func containsDuplicates(nums []int) bool {
-	// Takes a slice as an argument and returns a boolean
-	// Create a map to store values that have been visited
-	// visitedValues stores values in array as key and number of duplicates as value
-	visitedValues := make(map[int]int)
-
-	// Loop through the slice values
-	for _, value := range nums {
-		// Check if value exists in visitedValues
-		if _, ok := visitedValues[value]; ok {
-			// This means this is the second time value appears in the slice
+func containsDuplicate(nums []int) bool {
+	mp := make(map[int]int)
+	for i, v := range nums {
+		if _, found := mp[v]; found {
 			return true
 		}
-		// Store values in visitedValues
-		visitedValues[value] = 1
+		mp[v] = i
 	}
-	// No value apprear more than once
 	return false
-
 }

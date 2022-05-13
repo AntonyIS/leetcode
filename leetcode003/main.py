@@ -3,16 +3,13 @@ from typing import Dict,List
 
 
 
-def containsDuplicates(numbers:List[int]) :
-    visitedValues:Dict = {} # Store visited values here
-
-    # Loop through values in numbers
+def containsDuplicates(numbers:List[int]) -> bool :
+    d:Dict = {} 
     for i in numbers:
-        if i in visitedValues:
+        if i in d:
             return True
         else:
-            visitedValues[i] = 0
-
+            d[i] = i
     return False
 
 if __name__ == "__main__":
