@@ -1,21 +1,28 @@
 from typing import List
 
 
-def twoSum(numbers: List[int], target:int) -> List[int]:
+def twoSum_1(nums: List[int], target:int) -> List[int]:
     # Store values visted in a dictionary : key --> values, value --> index
-    compliments = {} # stores the values that have been visited
+    dict = {} # stores the values that have been visited
     # Loop all the items in the list
-    for i in range(len(numbers)):
-        diff = target - numbers[i]
-        if diff in compliments:
-            return [compliments[diff], i]
+    for i in range(len(nums)):
+        diff = target - nums[i]
+        if diff in dict:
+            return [dict[diff], i]
         else:
-            compliments[numbers[i]] = i
-
+            dict[nums[i]] = i
 
     return []
 
 
+def twoSum_2(nums: List[int], target:int) -> List[int]:
+    dict = {}
+    for i, v in enumerate(nums):
+        if (target - v) in dict:
+            return [dict[target - v], i]
+        else:
+            dict[v] = i
+    return []
 if __name__ == "__main__":
     numbers:List[int] = [2,7,11,15]
     target:int = 9 
