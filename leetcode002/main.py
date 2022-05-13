@@ -1,28 +1,20 @@
 from typing import List
 
 
-def bestTimeToBuySellStock(prices:List[int]) -> int:
-    maxProfit = 0 # Stores the maximum profit as we treverse the prices
-    today, tomorrow = 0, 1 #Defines stock prices today and tomorrow
-
-    # Loop through the prices array
-    while tomorrow < len(prices):
-
-        if prices[today] < prices[tomorrow] :
-            profit = prices[tomorrow] - prices[today] # Get price difference
-            # Check if profit is greater than maxProfit
-            if profit > maxProfit :
-                # Assign the profit to be maxProfit
-                maxProfit = profit
+def maxProfit(prices:List[int]) -> int:
+    mp, l, r = 0,0,1
+    while r < len(prices) :
+        if prices[l] < prices[r] :
+            if prices[r] - prices[l] > mp :
+                mp = prices[r] - prices[l]
         else:
-            # Reassign today to tomorrow
-            today = tomorrow
-        # For each loop move to the next day
-        tomorrow += 1
+            l = r
+        r += 1
 
-    return maxProfit
+    return mp
+   
 
 if __name__ == "__main__":
     prices:List[int] = [7,1,5,3,6,4]
-    results = bestTimeToBuySellStock(prices)
+    results = maxProfit(prices)
     print(results)

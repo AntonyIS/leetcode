@@ -24,31 +24,18 @@ func main() {
 }
 
 func maxProfit(prices []int) int {
-	// present day 	and future day
-	present_day, future_day := 0, 1
+	mp, l, r := 0, 0, 1
 
-	// Store maximun profits in this variable maxPro
-	var maxPro int
-
-	// loop through days and compare values in present and future day
-	for future_day < len(prices) {
-		// As long as future day is not greater than the number of days
-		// compare values in present_day and future_day
-		if prices[present_day] < prices[future_day] {
-			// check if the profit is greater than maxPro
-			profit := prices[future_day] - prices[present_day]
-			if profit > maxPro {
-				maxPro = profit
+	for r < len(prices) {
+		if prices[l] < prices[r] {
+			if prices[r]-prices[l] > mp {
+				mp = prices[r] - prices[l]
 			}
-
 		} else {
-			// if price in future is less than price in present, reassign the future value to present day to get the minimum price to buy stock
-			present_day = future_day
+			l = r
 		}
-		// continue moving forward in the future
-		future_day += 1
+		r += 1
 	}
-
-	return maxPro
+	return mp
 
 }
