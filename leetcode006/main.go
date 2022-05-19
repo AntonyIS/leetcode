@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	nums := []int{-1, 1, 0, -3, 3}
+	nums := []int{1, 2, 3, 4}
 	results := productExceptSelf(nums)
 	fmt.Println(results)
 }
@@ -12,7 +12,7 @@ func productExceptSelf(nums []int) []int {
 	// create an array with items == 1 if length size of nums
 	size := len(nums) // Array size
 	results := make([]int, size)
-
+	// [1,2,3,4]
 	// prefix : stores product of all items before them
 	prefix := 1
 	// Loop through items in nums and get the prefixes

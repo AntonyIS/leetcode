@@ -7,7 +7,6 @@ def getSum(a:int, b:int) -> int :
         # Nothing to carry | shift left
         return XOR
     else:
-        
         return getSum(XOR, AND << 1)
 
 if __name__ == "__main__":

@@ -5,15 +5,12 @@ import (
 )
 
 func main() {
-
 	nums := []int{-1, -2, -9, -6}
 	maxProduct := maxProduct(nums)
-
 	fmt.Println(maxProduct)
 }
 
 func maxProduct(nums []int) int {
-	// Find the currentMax, currentMin, and response and assign them to item in index 0
 	currentMax, currentMin, response := nums[0], nums[0], nums[0]
 	// Loop through all the items in nums starting at index 1, index 0 already covered
 	for i := 1; i < len(nums); i++ {

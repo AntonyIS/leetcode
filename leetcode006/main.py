@@ -10,7 +10,7 @@ def productExceptSelf(nums: List[int]) -> List[int]:
     for i in range(len(nums)):
         result[i] = prefix
         prefix *= nums[i]
-
+      
     # postfix : product of individual items after them
     postfix = 1
     # Loop through items from right to left : postfixing
@@ -22,7 +22,7 @@ def productExceptSelf(nums: List[int]) -> List[int]:
 
 
 if __name__ == "__main__":
-    nums = [-1,1,0,-3,3]
+    nums = [1,2,3,4]
     results = productExceptSelf(nums)
     print(results)
 
