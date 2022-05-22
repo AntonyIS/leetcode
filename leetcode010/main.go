@@ -13,21 +13,15 @@ func main() {
 }
 
 func threeSum(nums []int, target int) [][]int {
-	// Final results appended here
 	results := [][]int{}
-	// Sort the nums slice
 	sort.Ints(nums)
 
-	// Loop through sorted int slice
 	for i, num := range nums {
-		// Check if we are processing the same item twice
 		if i > 0 && num == nums[i-1] {
 			continue
 		}
-		// Define left and right pointers
 		left, right := i+1, len(nums)-1
 
-		// Loop while left < right
 		for left < right {
 			threeSum := num + nums[left] + nums[right]
 			if threeSum > 0 {

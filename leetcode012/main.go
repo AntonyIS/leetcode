@@ -1,20 +1,20 @@
 package main
 
-import (
-	"strconv"
-)
+import "fmt"
 
 func main() {
-	hammingWeight(123)
+	res := hammingWeight(10)
+	fmt.Println(res)
 }
 
 func hammingWeight(num uint32) int {
 	res := 0
-	s := strconv.FormatUint(uint64(num), 2)
-	for _, v := range s {
-		if v == '1' {
-			res++
+	for num > 0 {
+		if num&1 == 1 {
+			res += 1
 		}
+		num = num >> 1
+
 	}
 	return res
 
