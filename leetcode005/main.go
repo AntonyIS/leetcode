@@ -3,17 +3,17 @@ package main
 import "fmt"
 
 func main() {
-	a, b := 2, 2
-	sum := getSum(a, b)
+	a, b := 2, 43
+	sum := GetSum(a, b)
 
 	fmt.Println(sum)
 }
 
-func getSum(a, b int) int {
+func GetSum(a, b int) int {
 	AND := a & b
 	XOR := a ^ b
 	if AND == 0 {
 		return XOR
 	}
-	return getSum(XOR, AND<<1)
+	return GetSum(XOR, AND<<1)
 }

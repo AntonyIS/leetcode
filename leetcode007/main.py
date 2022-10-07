@@ -3,7 +3,6 @@ from typing import List
 def maxProduct(nums:List[int]) -> int :
     # Define the maximum value in array e.g [10]
     maxProd = max(nums)
-    
     # Define max and min current values
     currentMax, currentMin = 1,1
 
@@ -12,8 +11,8 @@ def maxProduct(nums:List[int]) -> int :
         # Ignore zero values in nums
         tempMax = currentMax
         # Keep track of both currentMin and currentMax in cases where nums has negative values
-        currentMax = max(num , max(num* tempMax, num * currentMin))
-        currentMin = min(num, min(num* tempMax,num * currentMin))
+        currentMax = max(num,num* tempMax, num * currentMin)
+        currentMin = min(num,num* tempMax,num * currentMin)
         maxProd = max(currentMax, maxProd)
         
     return maxProd

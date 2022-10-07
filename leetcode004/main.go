@@ -13,12 +13,12 @@ func maximumSubarray(nums []int) int {
 	// Define maxSub to store sum of values in a sub array
 	maxSub, currentSum := nums[0], 0
 	// Loop through all values in the nums array
-	for _, i := range nums {
+	for _, num := range nums {
 		// If currentSum is negative, ignore it, it will reduce the current sum
 		if currentSum < 0 {
 			currentSum = 0
 		}
-		currentSum += i
+		currentSum += num
 		// Get the max sum
 		maxSub = max(maxSub, currentSum)
 	}
