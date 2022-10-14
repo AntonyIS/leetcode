@@ -6,6 +6,7 @@ func main() {
 	nums := []int{2, 7, 11, 15}
 	target := 9
 	fmt.Println(twoSum_1(nums, target))
+	fmt.Println(twoSum_2(nums, target))
 }
 
 func twoSum_1(nums []int, target int) []int {
@@ -34,6 +35,7 @@ func twoSum_2(nums []int, target int) []int {
 	for i, num := range nums {
 		// Check if index i is in map m
 		if v, found := m[target-num]; found {
+		
 			// Return int array if i(v) is in map
 			return []int{v, i}
 		}

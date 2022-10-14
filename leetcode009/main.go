@@ -5,7 +5,7 @@ import "fmt"
 func main() {
 	nums := []int{4, 5, 6, 7, 0, 1, 2}
 
-	results := search(nums, 0)
+	results := search(nums, 3)
 	fmt.Println(results)
 }
 

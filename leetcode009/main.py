@@ -31,5 +31,5 @@ def search(nums:List[int], target: int) -> int :
 
 if __name__ == "__main__":
     nums:List[int] =[4,5,6,7,0,1,2]
-    findValue = search(nums, 0)
+    findValue = search(nums, 3)
     print(findValue)

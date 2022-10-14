@@ -3,18 +3,28 @@ package main
 import "fmt"
 
 func main() {
-	res := hammingWeight(10)
+	res := hammingWeight(1111111111)
 	fmt.Println(res)
+
+	var t uint32 = 2
+	fmt.Println(t % 2)
 }
 
 func hammingWeight(num uint32) int {
-	var res int
-	n := int(num)
-	for n > 0 {
-		res += n & 1
-		n = n >> 1
+	var bits int
+	for num != 0 {
+		num = num & (num - 1)
+		bits += 1
+	}
+	return bits
+}
+func hammingWeight2(num uint32) int {
+	var bits uint32
+
+	for num != 0 {
+		bits += num % 2
+		num = num >> 1
 	}
 
-	return res
-
+	return int(bits)
 }
